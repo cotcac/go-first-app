@@ -14,15 +14,12 @@ func main() {
 	router.GET("/pong", controllers.Pong)
 	router.GET("/pung", controllers.Pung)
 	router.GET("/users/ping", users.Ping)
-	router.GET("/users/list", users.List)
-	router.PATCH("/users/edit", users.Edit)
-	router.GET("/users/single", users.Single)
-	router.DELETE("/users/delete", users.Delete)
-	// get params
-	router.GET("/user/:name", func(c *gin.Context) {
-		name := c.Param("name")
-		c.String(http.StatusOK, "Hello %s", name)
-	})
+	router.GET("/users/", users.List)
+	router.POST("/users/", users.Insert)
+	router.PATCH("/users/edit/:id", users.Edit)
+	router.GET("/users/single/:id", users.Single)
+	router.DELETE("/users/delete/:id", users.Delete)
+
 	// post request
 	router.POST("post", func(c *gin.Context) {
 		// id := c.PostForm("id")

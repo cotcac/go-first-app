@@ -5,7 +5,8 @@ import (
 )
 
 func Edit(c *gin.Context) {
+	id := c.Param("id")
 	c.JSON(200, gin.H{
-		"message": "Edit Users",
+		"Edit": id,
 	})
 }

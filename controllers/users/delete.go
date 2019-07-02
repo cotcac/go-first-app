@@ -5,7 +5,8 @@ import (
 )
 
 func Delete(c *gin.Context) {
+	id := c.Param("id")
 	c.JSON(200, gin.H{
-		"message": "Delete Users",
+		"Delete": id,
 	})
 }

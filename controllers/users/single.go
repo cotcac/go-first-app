@@ -5,7 +5,8 @@ import (
 )
 
 func Single(c *gin.Context) {
+	id := c.Param("id")
 	c.JSON(200, gin.H{
-		"message": "Single User",
+		"message": id,
 	})
 }
