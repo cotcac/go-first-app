@@ -13,7 +13,8 @@ func Single(c *gin.Context) {
 	id := c.Param("id")
 	var user User
 	db:= models.DBConn()
-	err := db.QueryRow("select * from users where id =?", id).Scan(
+	stmt, err := db.Prepare("select * from users where id =?")
+	err = stmt.QueryRow(id).Scan(
 		&user.Id,
 		&user.Name,
 	)
