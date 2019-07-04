@@ -55,5 +55,4 @@ func List(c *gin.Context) {
 		"result":users,
 		"next": nextPage,
 	})
-	defer db.Close()
 }

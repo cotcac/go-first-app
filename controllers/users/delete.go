@@ -19,5 +19,4 @@ func Delete(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"Delete": "deleted",
 	})
-	defer db.Close()
 }
