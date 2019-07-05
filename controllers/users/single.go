@@ -3,6 +3,7 @@ package users
 import (
 	"github.com/gin-gonic/gin"
 	"../../models"
+	"fmt"
 )
 
 func Single(c *gin.Context) {
@@ -19,8 +20,9 @@ func Single(c *gin.Context) {
 		&user.Name,
 	)
 	if err != nil {
-		c.JSON(500, gin.H {
-			"message":"server error",
+		fmt.Println(err)
+		c.JSON(404, gin.H {
+			"message":"Not Found!",
 		})
 		return
 	}

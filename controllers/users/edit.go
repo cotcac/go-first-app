@@ -35,7 +35,7 @@ func Edit(c *gin.Context) {
 	}else {
 		c.JSON(200, gin.H{"error": err.Error()})
 	}
-	defer db.Close();
+
 
 	
 }

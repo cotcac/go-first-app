@@ -35,5 +35,4 @@ func Insert(c *gin.Context) {
 			"error":err.Error(),
 		})
 	}
-	defer db.Close()
 }
