@@ -30,7 +30,7 @@ func List(c *gin.Context) {
 	for rows.Next() {
 		user := models.User{} 
 		article := models.Article{}
-		err := rows.Scan(&article.Id, &article.Title,&article.UserId,&user.Id,&user.Name)
+		err := rows.Scan(&article.Id, &article.Title,&article.UserId,&user.Id,&user.Name,&user.Email)
 		if err != nil {
 			panic(err)
 		}

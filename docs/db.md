@@ -3,6 +3,7 @@
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 )  ENGINE=INNODB;
 ```
@@ -42,4 +43,16 @@ mysql> select articles.*, users.name as user_name from articles inner join users
 +----+--------+---------+-------------+
 |  3 | Title1 |      16 | Edited Name |
 +----+--------+---------+-------------+
+```
+
+# add collumn to table
+
+```
+ alter table users add email varchar(255) not null;
+
+```
+# Update all collums 
+```
+ update users set email="acb@gmail.com";
+
 ```

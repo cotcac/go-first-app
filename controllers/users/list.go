@@ -28,7 +28,7 @@ func List(c *gin.Context) {
 	users := make([]models.User,0)
 	for rows.Next() {
 		var user models.User
-		rows.Scan(&user.Id, &user.Name)
+		rows.Scan(&user.Id, &user.Name,&user.Email)
 		users = append(users,user)
 	}
 	fmt.Println(len(users))

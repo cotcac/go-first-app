@@ -18,6 +18,7 @@ func Single(c *gin.Context) {
 		&article.UserId,
 		&article.User.Id,
 		&article.User.Name,
+		&article.User.Email,
 
 	)
 	if err != nil {

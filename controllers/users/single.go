@@ -15,6 +15,7 @@ func Single(c *gin.Context) {
 	err = stmt.QueryRow(id).Scan(
 		&user.Id,
 		&user.Name,
+		&user.Email,
 	)
 	if err != nil {
 		fmt.Println(err)

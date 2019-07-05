@@ -5,5 +5,5 @@ type Article struct {
 	Id   int
 	Title string
 	UserId int
-	User User
+	User User `json:",omitempty"`
   }
