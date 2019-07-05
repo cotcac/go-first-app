@@ -7,11 +7,6 @@ import (
 	"fmt"
 )
 
-type User struct {
-	Id int `json:"id"`
-	Name string `json:"name"`
-}
-
 func List(c *gin.Context) {
 	db:= models.DBConn()
 	perPage := 5
@@ -30,9 +25,9 @@ func List(c *gin.Context) {
 			"message":"server error",
 		})
 	}
-	users := make([]User,0)
+	users := make([]models.User,0)
 	for rows.Next() {
-		var user User
+		var user models.User
 		rows.Scan(&user.Id, &user.Name)
 		users = append(users,user)
 	}

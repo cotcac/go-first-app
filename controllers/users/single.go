@@ -7,12 +7,9 @@ import (
 )
 
 func Single(c *gin.Context) {
-	type User struct {
-		Id int `json:"id"`
-		Name string `json:"name"`
-	}
+
 	id := c.Param("id")
-	var user User
+	var user models.User
 	db:= models.DBConn()
 	stmt, err := db.Prepare("select * from users where id =?")
 	err = stmt.QueryRow(id).Scan(

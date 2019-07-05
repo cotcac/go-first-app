@@ -2,6 +2,6 @@ package models
 
 // users type details
 type User struct {
-	ID   int
+	Id   int
 	Name string
   }
