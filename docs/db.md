@@ -8,6 +8,16 @@ CREATE TABLE IF NOT EXISTS users (
 )  ENGINE=INNODB;
 ```
 
+# create table categories
+
+```
+CREATE TABLE IF NOT EXISTS categories (
+    id INT AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+)  ENGINE=INNODB;
+```
+
 # create table articles.
 ```
 CREATE TABLE IF NOT EXISTS articles (

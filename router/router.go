@@ -3,6 +3,7 @@ package router
 import (
 	"../controllers/users"
 	"../controllers/articles"
+	"../controllers/categories"
 	"github.com/gin-gonic/gin"
 )
 
@@ -26,6 +27,10 @@ func setupRouter() *gin.Engine {
 		router.POST("/articles/", articles.Insert)
 		// router.PATCH("/users/edit/:id", users.Edit)
 		// router.DELETE("/users/delete/:id", users.Delete)
+
+		// CATEGORIES ENDPOINT
+
+		router.POST("/categories/", categories.Insert)
 
 	}
 	return r
