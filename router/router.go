@@ -22,7 +22,7 @@ func setupRouter() *gin.Engine {
 
 		// router.GET("/users/ping", users.Ping)
 		router.GET("/articles/", articles.List)
-		// router.GET("/articles/single/:id", articles.Single)
+		router.GET("/articles/single/:id", articles.Single)
 		router.POST("/articles/", articles.Insert)
 		// router.PATCH("/users/edit/:id", users.Edit)
 		// router.DELETE("/users/delete/:id", users.Delete)
