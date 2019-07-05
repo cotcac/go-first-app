@@ -30,6 +30,19 @@ CREATE TABLE IF NOT EXISTS articles (
 )  ENGINE=INNODB;
 ```
 
+# create table category_article
+```
+
+CREATE TABLE IF NOT EXISTS category_article (
+    category_id int NOT NULL,
+    article_id int NOT NULL,
+    PRIMARY KEY (category_id, article_id),
+    FOREIGN KEY (category_id) REFERENCES categories(id),
+    FOREIGN KEY (article_id) REFERENCES articles(id)
+)  ENGINE=INNODB;
+
+```
+
 # select all article with user name.
 
 ```
