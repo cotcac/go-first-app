@@ -18,7 +18,11 @@ func List(c *gin.Context) {
 	}else {
 		skip = 0
 	}
-	stmt, err := db.Prepare("select articles.*, users.* from articles inner join users on articles.user_id = users.id limit ?,?")
+	stmt, err := db.Prepare(`
+	select articles.id, articles.title, users.id, users.name 
+	from articles 
+	inner join users on articles.user_id = users.id 
+	limit ?,?`)
 	rows, err := stmt.Query(skip,perPage + 1)
 	if err != nil {
 		c.JSON(500, gin.H {
@@ -26,16 +30,13 @@ func List(c *gin.Context) {
 		})
 	}
 	fmt.Print(rows)
-	articles := make([]models.Article,0)
+	articles := make([]models.Articles,0)
 	for rows.Next() {
-		user := models.User{} 
-		article := models.Article{}
-		err := rows.Scan(&article.Id, &article.Title,&article.UserId,&user.Id,&user.Name,&user.Email)
+		article := models.Articles{}
+		err := rows.Scan(&article.Id, &article.Title,&article.User.Id,&article.User.Name)
 		if err != nil {
 			panic(err)
 		}
-		// article.User = append(article.User,user)// magic
-		article.User = user
 		articles = append(articles,article)
 	}
 	fmt.Println(len(articles))
